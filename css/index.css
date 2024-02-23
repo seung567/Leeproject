@@ -1,0 +1,210 @@
+@charset "UTF-8";
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        * {
+            font-family: 'Jua', sans-serif;
+        }
+        
+
+.header {
+    position: relative;
+}
+
+body {
+    background: url(../img/star.jpg) no-repeat fixed;
+    background-size: cover;
+    position: relative; /* 부모 요소를 기준으로 자식 요소를 배치하기 위해 */
+}
+
+.success-secret {
+    position: absolute;
+    top: 17px;
+    left : 30px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+     z-index: 1; /* 클릭 가능성을 위해 다른 요소 위에 위치하도록 설정 */
+}
+
+.my-info {
+    position: absolute;
+    top: 30px;
+    left: 100px; /* 오른쪽으로 조정할 값 */
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: purple; /* 글씨 배경에 적용할 색상 */
+     z-index: 1; /* 클릭 가능성을 위해 다른 요소 위에 위치하도록 설정 */
+}
+
+.vision-board, .bucket-list, .priority, .to-do, .today, .reflection {
+    position: absolute;
+    top: 30px;
+    left: 100px; /* 오른쪽으로 조정할 값 */
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #030088; /* 글씨 배경에 적용할 색상 */
+     z-index: 1; /* 클릭 가능성을 위해 다른 요소 위에 위치하도록 설정 */
+}
+
+
+.my-info {
+    left: 200px; /* "성공비밀"과의 간격 조정을 위한 값 */
+     cursor: pointer;
+     
+}
+
+.vision-board {
+    left: 300px; /* "나의정보"와의 간격 조정을 위한 값 */
+     cursor: pointer;
+}
+
+.bucket-list {
+    left: 400px; /* "비전보드"와의 간격 조정을 위한 값 */
+     cursor: pointer;
+}
+
+.priority {
+    left: 520px; /* "버킷리스트"와의 간격 조정을 위한 값 */
+     cursor: pointer;
+}
+
+.to-do {
+    left: 620px; /* "우선순위"와의 간격 조정을 위한 값 */
+     cursor: pointer;
+}
+
+.today {
+    left: 720px; /* "해야할일"과의 간격 조정을 위한 값 */
+      cursor: pointer;
+}
+
+.reflection {
+    left: 820px; /* "오늘하루"와의 간격 조정을 위한 값 */
+      cursor: pointer;
+}
+
+.login {
+
+    position: absolute;
+    top: 30px;
+    right: 130px; /* 오른쪽으로 조정할 값 */
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: purple; /* 글씨 배경에 적용할 색상 */
+    cursor: pointer;
+    z-index: 1; /* 클릭 가능성을 위해 다른 요소 위에 위치하도록 설정 */
+ 
+}
+
+.sign-up {
+
+    position: absolute;
+    top: 30px;
+    right: 30px; /* 오른쪽으로 조정할 값 */
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: purple; /* 글씨 배경에 적용할 색상 */
+    cursor: pointer;
+    z-index: 1; /* 클릭 가능성을 위해 다른 요소 위에 위치하도록 설정 */
+ 
+}
+  
+  
+.author {
+    font-size: 50px;
+    font-style: italic;
+}
+
+.main {
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    font-size: 60px;
+    color: white;
+    -webkit-text-stroke-color: coral;
+  	-webkit-text-stroke-width: 1px;
+}
+
+.quote {
+    width: 100vw;
+    height: 160vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: white;
+}
+
+.blackhole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300vw; /* 화면 너비의 3배로 설정하여 화면을 넘어가는 부분을 커버 */
+    height: 300vh; /* 화면 높이의 3배로 설정하여 화면을 넘어가는 부분을 커버 */
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); /* 원형 그라데이션을 통해 블랙홀 효과 구현 */
+    animation: blackhole-animation 3s ease-in-out forwards; /* 3초 동안 애니메이션을 적용하고 끝나면 마지막 상태를 유지 */
+     z-index: -1; /* 다른 요소 뒤에 위치하도록 설정 */
+}
+
+@keyframes blackhole-animation {
+    0% {
+        transform: translate(-50%, -50%) scale(0); /* 초기 위치에서 크기 0으로 시작 */
+        opacity: 1; /* 완전히 투명하지 않도록 설정 */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(3); /* 중앙으로 이동하면서 배경을 커짐 */
+        opacity: 0; /* 완전히 투명하도록 설정 */
+    }
+}
+
+.message {
+    position: absolute; /* 절대 위치로 설정하여 다른 요소에 영향을 받지 않도록 합니다. */
+    top: 50%; /* 슬라이드 쇼의 세로 중앙에 위치하기 위해 50%로 설정합니다. */
+    left: 50%; /* 슬라이드 쇼의 가로 중앙에 위치하기 위해 50%로 설정합니다. */
+    transform: translate(-50%, -50%); /* 슬라이드 쇼의 중앙으로 메시지를 이동시킵니다. */
+    font-size: 80px; /* 메시지의 글자 크기를 설정합니다. */
+    font-weight: bold; /* 메시지의 글자 굵기를 설정합니다. */
+    color: white; /* 메시지의 글자 색상을 설정합니다. */
+    z-index: 1; /* 슬라이드 쇼 위에 메시지를 배치합니다. */
+     -webkit-text-stroke-color: black;
+  	-webkit-text-stroke-width: 0.5px; 
+}
+
+  
+  @keyframes wave {
+    0% {
+        transform: translateY(0); /* 시작 지점 */
+    }
+    50% {
+        transform: translateY(-10px); /* 물결 위로 이동 */
+    }
+    100% {
+        transform: translateY(0); /* 다시 원래 위치로 돌아옴 */
+    }
+}
+
+#slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 화면 세로 전체 높이에 맞춰 슬라이드를 가운데에 정렬합니다. */
+}
+
+
+
+
+
+
+
+

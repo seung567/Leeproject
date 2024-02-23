@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해야할일</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+body {
+    background: url(../img/star.jpg) no-repeat fixed;
+   	background-size: cover;
+    font-family: Arial, sans-serif;
+    background-color: pink; /* 분홍색으로 변경 */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px; /* 넓이 조정 */
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px; /* 간격 추가 */
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: calc(70% - 10px); /* 넓이 조정 */
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #e83e8c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c2255c;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.placeholder {
+    background-color: #f2f2f2 !important;
+}
+
+.task-input {
+    width: 100%; /* 넓이 조정 */
+    margin-bottom: 10px; /* 간격 추가 */
+    overflow-y: auto; /* 세로 방향으로 넘치는 경우 스크롤바 표시 */
+    max-height: 100px; /* 최대 높이 설정 */
+}
+
+/* 수정 버튼 왼쪽으로 이동 */
+.edit-button {
+    margin-right: 5px;
+}
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+function addTask() {
+    var taskInput = document.getElementById("taskInput");
+    var taskList = document.querySelector("#taskList tbody");
+
+    if (taskInput.value.trim() === "") {
+        alert("할 일을 입력하세요!");
+        return;
+    }
+
+    var tr = document.createElement("tr");
+    
+    var tdTask = document.createElement("td");
+    var checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+    checkBox.onclick = function() {
+        tdTask.classList.toggle("completed");
+    };
+    tdTask.appendChild(checkBox);
+    var label = document.createElement("label");
+    label.textContent = taskInput.value;
+    tdTask.appendChild(label);
+
+    var tdAction = document.createElement("td");
+
+    // 수정 버튼 왼쪽에 추가
+    var editButton = document.createElement("button");
+    editButton.textContent = "수정";
+    editButton.classList.add("edit-button");
+    editButton.onclick = function() {
+        var newText = prompt("수정할 내용을 입력하세요:", label.textContent);
+        if (newText !== null) {
+            label.textContent = newText;
+        }
+    };
+    tdAction.appendChild(editButton);
+
+    var deleteButton = document.createElement("button");
+    deleteButton.textContent = "삭제";
+    deleteButton.onclick = function() {
+        taskList.removeChild(tr);
+    };
+    tdAction.appendChild(deleteButton);
+
+    tr.appendChild(tdTask);
+    tr.appendChild(tdAction);
+    taskList.appendChild(tr);
+
+    taskInput.value = "";
+
+    // Enable drag and drop
+    $("#taskList tbody").sortable({
+        placeholder: "placeholder",
+        axis: "y",
+        handle: "label",
+        cursor: "grabbing"
+    });
+}
+</script>
+
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>To-Do List</h1>
+        <input type="text" id="taskInput" class="task-input" placeholder="할 일을 입력하세요!">
+        <button onclick="addTask()">등록</button>
+    </div>
+    <table id="taskList">
+        <thead>
+            <tr>
+                <th>중요긴급 - 우선순위 - 해야할일 - 예상소요시간 - 시작일 - 마감일</th>
+                <th>수정　　삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

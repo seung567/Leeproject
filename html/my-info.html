@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>나의정보</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    body {
+/*         background-color: pink;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0; */
+        background: url(../img/star.jpg) no-repeat fixed;
+    	background-size: cover;
+    }
+
+
+    form {
+        background-color: #ffffff;
+        border-radius: 10px;
+        width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    }
+
+    fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    legend {
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #333333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #e83e8c;
+        color: #ffffff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #c2255c;
+    }
+
+    /* 성별을 한 줄로 배치 */
+    input[type="checkbox"],
+    label[for="male"],
+    label[for="female"] {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    /* 리스트 아이템 간격 조정 */
+    ol li {
+        margin-bottom: 15px;
+    }
+    
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+
+function uncheckFemale() {
+    document.getElementById("female").checked = false;
+}
+
+function uncheckMale() {
+    document.getElementById("male").checked = false;
+}
+
+function saveTask(taskId) {
+    var taskText = document.getElementById(taskId).value;
+    alert("변경이 완료 되었습니다!");
+}
+
+</script>
+</head>
+
+<body>
+
+<form>
+
+    <fieldset>
+        <legend>나의정보 변경</legend>
+        <ol>
+
+            <li>
+                <label for="pass">비밀번호</label>
+                <input id="pass" name="pass" type="password" required="required" placeholder="8글자이상, 영소문자+숫자+특수문자 모두사용" autofocus="autofocus"/> <button type="submit">비밀번호확인</button>
+            </li>
+
+            <li>
+                <label for="useremail">이메일</label>
+                <input id="useremail" name="useremail" type="email" placeholder="abc@naver.com" required autocomplete="off"/>
+            </li>
+
+            <li>
+                <label for="gender">성별</label>
+                <input type="checkbox" id="male" name="gender" value="male" onclick="uncheckFemale()"><label for="male">남자</label>
+                <input type="checkbox" id="female" name="gender" value="female" onclick="uncheckMale()"><label for="female">여자</label>
+            </li>
+
+            <li>
+                <label for="usertel">연락처</label>
+                <input id="usertel" name="usertel" type="text" required="required" placeholder="01012345678" autofocus="autofocus"/> <button type="submit">인증</button>
+            </li>
+
+            <li>
+                <label for="certi">인증번호</label>
+                <input id="certi" name="certi" type="text" required="required" placeholder="인증번호를 입력하세요" autofocus="autofocus"/> <button type="submit" onclick="saveTask('certi')">나의정보 변경</button>
+            </li>
+
+        </ol>
+    </fieldset>
+
+
+</form>
+</body>
+</html>

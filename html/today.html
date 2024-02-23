@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>오늘하루</title>
+    <style>
+        body {
+            background-color: pink;
+           background: url(../img/star.jpg) no-repeat fixed;
+    	   background-size: cover;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: pink;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+            background-color: white;
+        }
+
+        th {
+            background-color: pink;
+        }
+
+        th:first-child, td:first-child {
+            text-align: left;
+        }
+
+        td[contenteditable="true"]:focus {
+            outline: 4px solid hotpink;
+        }
+    </style>
+</head>
+
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>시간대</th>
+                <th>월요일</th>
+                <th>화요일</th>
+                <th>수요일</th>
+                <th>목요일</th>
+                <th>금요일</th>
+                <th>토요일</th>
+                <th>일요일</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var tableBody = document.getElementById("table-body");
+
+            for (var hour = 0; hour < 24; hour++) {
+                var row = document.createElement("tr");
+                var timeCell = document.createElement("td");
+                timeCell.textContent = ('0' + hour).slice(-2) + "시 ~ " + ('0' + (hour + 1)).slice(-2) + "시";
+                row.appendChild(timeCell);
+
+                for (var day = 0; day < 7; day++) {
+                    var cell = document.createElement("td");
+                    cell.contentEditable = true;
+                    row.appendChild(cell);
+                }
+
+                tableBody.appendChild(row);
+            }
+        });
+    </script>
+</body>
+</html>

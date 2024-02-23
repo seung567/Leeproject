@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회고</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    body {
+        background-color: pink;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url(../img/star.jpg) no-repeat fixed;
+    	background-size: cover;
+    }
+
+    form {
+        background-color: #ffffff;
+        border-radius: 10px;
+        width: 600px;
+        margin: 100px auto;
+        padding: 80px;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    }
+
+    fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    legend {
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #333333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    textarea {
+        width: calc(100% - 20px);
+        height: 80px; /* 높이를 조절할 수 있습니다. */
+        padding: 10px; /* 수정된 부분: 텍스트와 테두리 사이에 간격을 주기 위해 padding 값 수정 */
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        box-sizing: border-box;
+        white-space: pre-line;
+        resize: vertical; /* 수직 크기 조절을 허용합니다. */
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #e83e8c;
+        color: #ffffff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #c2255c;
+    }
+
+
+    /* 리스트 아이템 간격 조정 */
+    ol li {
+        margin-bottom: 15px;
+    }
+    
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+
+function saveTask(taskId, event) {
+    event.preventDefault(); // 기본 동작 막기
+
+    var taskText = document.getElementById(taskId).value;
+    alert("저장되었습니다.");
+}
+
+
+
+</script>
+</head>
+
+<body>
+
+<form>
+
+    <fieldset>
+        <legend>회고</legend>
+        <ol>
+            <li>
+                <label for="done">오늘 달성한 목표</label>
+                <textarea id="done" name="done" required="required" placeholder="SQL 1장 정독하고 요약하기" autofocus="autofocus"></textarea> <button class="save-button" onclick="saveTask('done', event)">저장</button>
+            </li>
+
+            <li>
+                <label for="good">나에게 칭찬 및 감사</label>
+                <textarea id="good" name="good" required="required" placeholder="너무 어렵고 포기하고 싶지만 참고 버텨냈다! 나의 인내심에 박수를" autofocus="autofocus"></textarea> <button class="save-button" onclick="saveTask('good', event)">저장</button>
+            </li>
+
+            <li>
+                <label for="bad">문제점, 장애물, 실패한이유, 반성</label>
+                <textarea id="bad" name="bad" required="required" placeholder="요즘 운동을 게을리해서 체력이 떨어진 것 같다." autofocus="autofocus"></textarea> <button class="save-button" onclick="saveTask('bad', event)">저장</button>
+            </li>
+
+            <li>
+                <label for="fix">언제까지, 어떻게, 해결방법, 교훈</label>
+                <textarea id="fix" name="fix" required="required" placeholder="내일은 꼭 하루만보걷기, 학교계단 걸어서 올라가기" autofocus="autofocus"></textarea> <button class="save-button" onclick="saveTask('fix', event)">저장</button>
+            </li>
+            
+            <li>
+                <label for="todo">내일 달성할 목표</label>
+                <textarea id="todo" name="todo" required="required" placeholder="SQL 1장 문제풀이 하기" autofocus="autofocus"></textarea> <button class="save-button" onclick="saveTask('todo', event)">저장</button>
+            </li>
+
+        </ol>
+    </fieldset>
+
+
+</form>
+</body>
+</html>

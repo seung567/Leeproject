@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인</title>
+<style>
+    body {
+/*         background-color: pink; 
+        font-family: Arial, sans-serif; 
+        margin: 0; 
+        padding: 0;  */
+        
+        background: url(../img/star.jpg) no-repeat fixed;
+    	background-size: cover;
+    }
+
+    form {
+        background-color: #ffffff; /* 폼 배경색 */
+        border-radius: 10px; /* 폼 모서리 둥글게 */
+        width: 400px; /* 폼 너비 지정 */
+        margin: 50px auto; /* 폼을 수평 중앙으로 정렬 */
+        padding: 20px; /* 폼 안쪽 여백 */
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* 그림자 추가 */
+    }
+
+    fieldset {
+        border: none; /* fieldset 테두리 제거 */
+        padding: 0; /* fieldset 안쪽 여백 제거 */
+        margin: 0; /* fieldset 마진 제거 */
+    }
+
+    legend {
+        font-weight: bold; /* legend 텍스트를 굵게 */
+        font-size: 1.2em; /* legend 텍스트 크기 */
+        color: #333333; /* legend 텍스트 색상 */
+    }
+
+    label {
+        display: block; /* label을 블록 레벨 요소로 표시하여 위아래 여백 추가 */
+        margin-bottom: 5px; /* label 아래쪽 여백 */
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="radio"] {
+        width: calc(100% - 20px); /* 입력 요소 너비 지정 */
+        padding: 10px; /* 입력 요소 패딩 */
+        margin-bottom: 10px; /* 입력 요소 아래쪽 여백 */
+        border-radius: 5px; /* 입력 요소 모서리 둥글게 */
+        border: 1px solid #ced4da; /* 입력 요소 테두리 */
+        box-sizing: border-box; /* 입력 요소 박스 크기 지정 */
+    }
+
+    button {
+        padding: 10px 20px; /* 버튼 패딩 */
+        border: none; /* 버튼 테두리 제거 */
+        background-color: #e83e8c; /* 버튼 배경색 */
+        color: #ffffff; /* 버튼 텍스트 색상 */
+        border-radius: 5px; /* 버튼 모서리 둥글게 */
+        cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능한 상태로 표시 */
+        transition: background-color 0.3s ease; /* 배경색 변경 애니메이션 */
+        margin-right: 10px; /* 여기서 버튼 간격 조절 */
+    }
+
+    button:hover {
+        background-color: #c2255c; /* 호버 시 배경색 변경 */
+    }
+</style>
+</head>
+
+<body>
+
+<form>
+    <fieldset>
+        <legend>로그인</legend>
+        <ol>
+            <li>
+                <label for="loginid">아이디</label>
+                <input id="loginid" name="loginid" type="text" required="required" placeholder="6~11글자, 영소문자+숫자" autofocus="autofocus"/>
+            </li>
+            <li>
+                <label for="loginpass">비밀번호</label>
+                <input id="loginpass" name="loginpass" type="password" required="required" placeholder="8글자이상, 영소문자+숫자+특수문자 모두사용" autofocus="autofocus"/>
+            </li>
+                    <button type="submit">로그인</button> <button type="find">비밀번호찾기</button>
+        </ol>
+    </fieldset>
+
+</form>
+</body>
+</html>
